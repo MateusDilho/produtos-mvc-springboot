@@ -9,7 +9,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import br.com.fiap.model.CategoriaModel;
-import jakarta.validation.Valid;
 
 @Repository
 public class CategoriaRepository {
@@ -47,7 +46,7 @@ public class CategoriaRepository {
 		this.jdbcTemplate.update(SAVE, categoria.getNomeCategoria());
 	}
 
-	public void update(@Valid CategoriaModel categoria) {
+	public void update(CategoriaModel categoria) {
 		this.jdbcTemplate.update( UPDATE, categoria.getNomeCategoria(), categoria.getIdCategoria() );
 		
 	}

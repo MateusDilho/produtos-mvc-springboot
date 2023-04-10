@@ -63,12 +63,19 @@
 										value="" class="form-control" maxlength="50" size="50" />
 									<font color="red"><form:errors path="nome"></form:errors></font>
 								</div>
+								
+								<div class="form-group">
+									<label class="control-label" for="idCategoria">Categoria:</label>
+									<form:select path="categoriaModel.idCategoria" name="categoriaModel.idCategoria" id="idCategoria" class="form-select">
+										<form:options items="${categorias}" itemValue="idCategoria" itemLabel="nomeCategoria"/>
+									</form:select>
+								</div>
+								
 								<div class="form-group">
 									<label class="control-label" for="sku">SKU:</label>
 									<form:input type="text" path="sku" name="sku" id="sku"
 										class="form-control" maxlength="50" size="50" />
 									<font color="red"><form:errors path="sku"></form:errors></font>
-
 								</div>
 
 								<div class="form-group">
@@ -86,8 +93,8 @@
 								</div>
 
 								<div class="form-group">
-									<label class="control-label" for="caracteristica">Características:</label>
-									<form:textarea id="caracteristica" class="form-control"
+									<label class="control-label" for="caracteristicas">Características:</label>
+									<form:textarea id="caracteristicas" class="form-control"
 										path="caracteristicas" name="caracteristicas" rows="4"
 										cols="100"></form:textarea>
 									<font color="red"><form:errors path="caracteristicas"></form:errors></font>

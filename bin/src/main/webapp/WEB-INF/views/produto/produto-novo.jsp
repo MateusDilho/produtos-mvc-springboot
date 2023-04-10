@@ -3,12 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 
 <head>
 <meta charset="ISO-8859-1">
-<title>Categoria</title>
+<title>Produtos</title>
 
 <!-- ATALHO PARA TRAZER A URL DE CONTEXTO DO PROJETO -->
 <c:set value="${pageContext.request.contextPath}" var="contextPath" />
@@ -45,26 +46,56 @@
 					<div class="col-lg-12">
 						<div class="well">
 
-							<h2 class="fonte-titulo texto-cor-especial">Categoria</h2>
+							<h2 class="fonte-titulo texto-cor-especial">Produto</h2>
 
-							<form:form modelAttribute="categoriaModel" action="${contextPath}/categoria" method="post">
+							<form:form modelAttribute="produtoModel"
+								action="${contextPath}/produto" method="post">
 
-								<spring:hasBindErrors name="categoriaModel">
+								<spring:hasBindErrors name="produtoModel">
 									<div class="alert alert-danger" role="alert">
-										<form:errors path="*" class="has-error"/>
+										<form:errors path="*" class="has-error" />
 									</div>
 								</spring:hasBindErrors>
 
 								<div class="form-group">
-									<label class="control-label" for="nomeCategoria">Nome:</label>
-									<form:input type="text" name="nomeCategoria" path="nomeCategoria" 
-									id="nomeCategoria" class="form-control"/>
-									<font color="red"><form:errors path="nomeCategoria"/></font>
+									<label class="control-label" for="nome">Nome:</label>
+									<form:input type="text" name="nome" path="nome" id="nome"
+										value="" class="form-control" maxlength="50" size="50" />
+									<font color="red"><form:errors path="nome"></form:errors></font>
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="sku">SKU:</label>
+									<form:input type="text" path="sku" name="sku" id="sku"
+										class="form-control" maxlength="50" size="50" />
+									<font color="red"><form:errors path="sku"></form:errors></font>
+
+								</div>
+
+								<div class="form-group">
+									<label class="control-label" for="descricao">Descrição:</label>
+									<form:textarea class="form-control" path="descricao"
+										name="descricao" id="descricao" rows="4" cols="100"></form:textarea>
+									<font color="red"><form:errors path="descricao"></form:errors></font>
+								</div>
+
+								<div class="form-group">
+									<label class="control-label" for="preco">Preço:</label>
+									<form:input type="number" id="preco" path="preco" name="preco"
+										step=".01" class="form-control" />
+									<font color="red"><form:errors path="preco"></form:errors></font>
+								</div>
+
+								<div class="form-group">
+									<label class="control-label" for="caracteristica">Características:</label>
+									<form:textarea id="caracteristica" class="form-control"
+										path="caracteristicas" name="caracteristicas" rows="4"
+										cols="100"></form:textarea>
+									<font color="red"><form:errors path="caracteristicas"></form:errors></font>
 								</div>
 								<hr>
 
 								<a class="btn btn-secondary btn-sm"
-									href="${contextPath}/categoria">Cancelar</a>
+									href="${contextPath}/produto">Cancelar</a>
 								<button type="submit" class="btn btn-primary btn-sm">Gravar</button>
 							</form:form>
 						</div>

@@ -68,19 +68,12 @@
 										class="form-control"/>
 									<font color="red"><form:errors path="nome"></form:errors></font>
 								</div>
-								
-								<div class="form-group">
-									<label class="control-label" for="idCategoria">Categoria:</label>
-									<form:select path="categoriaModel.idCategoria" name="categoriaModel.idCategoria" id="idCategoria" class="form-select">
-										<form:options items="${categorias}" itemValue="idCategoria" itemLabel="nomeCategoria"/>
-									</form:select>
-								</div>
-								
 								<div class="form-group">
 									<label class="control-label" for="sku">SKU:</label>
 									<form:input type="text" path="sku" name="sku" id="sku"
 										class="form-control"/>
 									<font color="red"><form:errors path="sku"></form:errors></font>
+
 								</div>
 
 								<div class="form-group">

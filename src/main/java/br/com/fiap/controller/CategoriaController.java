@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,15 +50,15 @@ public class CategoriaController {
 
 	}
 
-	@PutMapping()
-	public String save(@Valid CategoriaModel categoria, BindingResult bindingResult,
+	@PostMapping()
+	public String save(@Valid CategoriaModel categoriaModel, BindingResult bindingResult,
 			RedirectAttributes redirectAttributes) {
 		if (bindingResult.hasErrors()) {
 			return CATEGORIA_FOLDER + "categoria-novo";
 		}
 
-		repository.save(categoria);
-		redirectAttributes.addFlashAttribute("message", "Categoria cadastrada com sucesso!");
+		repository.save(categoriaModel);
+		redirectAttributes.addFlashAttribute("messages", "Categoria cadastrada com sucesso!");
 		return "redirect:/categoria";
 	}
 

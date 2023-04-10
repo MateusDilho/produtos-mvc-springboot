@@ -8,7 +8,7 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Produtos</title>
+		<title>Categoria</title>
 
 		<!-- ATALHO PARA TRAZER A URL DE CONTEXTO DO PROJETO -->
 		<c:set value="${pageContext.request.contextPath}" var="contextPath"/>
@@ -33,11 +33,7 @@
 	</head>
 	<body>
 		<header>
-			<nav class="navbar navbar-dark bg-dark">
-			  <div class="container-fluid">
-			    <a class="navbar-brand fonte-titulo" href="${contextPath}/produtos">Produtos</a>
-			  </div>
-			</nav>
+			<%@include file = "../navbar/navbar.html" %>
 		</header>
 		
 		<main  >
@@ -47,28 +43,13 @@
 	        <div class="row">
 	            <div class="col-lg-12">
 					<form>
-						<h2 class="fonte-titulo texto-cor-especial">Produto</h2>
+						<h2 class="fonte-titulo texto-cor-especial">Categoria</h2>
 						<div class="form-group">
-							<p class="fs-6 m-0"><b>Nome:</b> ${produto.nome}</p>
+							<p class="fs-6 m-0"><b>Nome da Categoria:</b> ${categoria.nomeCategoria}</p>
                         </div>
-                        <div class="form-group">
-							<p class="fs-6 m-0"><b>Categoria:</b> ${produto.categoriaModel.nomeCategoria}</p>
-                        </div>
-                        <div class="form-group">
-                        	<p class="fs-6 m-0"><b>SKU:</b> ${produto.sku}</p>
-						</div>
-						<div class="form-group">
-							<p class="fs-6 m-0"><b>Descrição:</b> ${produto.descricao}</p>
-						</div>
-						<div class="form-group">
-							<p class="fs-6 m-0"><b>Preço:</b> ${produto.preco}</p>
-						</div>
-						<div class="form-group">
-							<p class="fs-6 m-0"><b>Características:</b> ${produto.caracteristicas}</p>
-						</div>
 						<hr>
 						<div class="d-grid gap-2 col-6">
-							<a class="btn btn-primary btn-sm" href="${contextPath}/produto">Voltar</a>
+							<a class="btn btn-primary btn-sm" href="${contextPath}/categoria">Voltar</a>
 						</div>
                     </form>
 	            </div>

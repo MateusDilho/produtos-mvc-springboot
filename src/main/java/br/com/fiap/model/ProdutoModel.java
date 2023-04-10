@@ -11,12 +11,14 @@ public class ProdutoModel {
 	private String descricao;
 	private double preco;
 	private String caracteristicas;
+	private CategoriaModel categoriaModel;
 
 	public ProdutoModel() {
 		super();
 	}
 
-	public ProdutoModel(long id, String nome, String sku, String descricao, double preco, String caracteristicas) {
+	public ProdutoModel(long id, String nome, String sku, String descricao, double preco, String caracteristicas,
+			CategoriaModel categoriaModel) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -24,6 +26,7 @@ public class ProdutoModel {
 		this.descricao = descricao;
 		this.preco = preco;
 		this.caracteristicas = caracteristicas;
+		this.categoriaModel = categoriaModel;
 	}
 
 	public long getId() {
@@ -77,6 +80,14 @@ public class ProdutoModel {
 
 	public void setCaracteristicas(String caracteristicas) {
 		this.caracteristicas = caracteristicas;
+	}
+
+	public CategoriaModel getCategoriaModel() {
+		return categoriaModel;
+	}
+
+	public void setCategoriaModel(CategoriaModel categoriaModel) {
+		this.categoriaModel = categoriaModel;
 	}
 
 }

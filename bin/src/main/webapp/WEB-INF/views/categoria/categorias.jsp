@@ -42,8 +42,8 @@
 		    	<div> 
         			<div class="row">
             			<div class="col-md-12">
-							<h2 class="fonte-titulo texto-cor-especial">Produtos</h2>
-							<a class="btn btn-secondary" href="${contextPath}/produto/form?page=produto-novo">Novo Produto</a>
+							<h2 class="fonte-titulo texto-cor-especial">Categorias</h2>
+							<a class="btn btn-secondary" href="${contextPath}/categoria/form?page=categoria-novo">Nova Categoria</a>
 							<c:if test="${not empty messages}">
 							<h3 class="alert alert-warning">${messages}</h3>
 							</c:if>
@@ -57,21 +57,17 @@
 			<thead>
 			    <tr>
 			      <th scope="col">Nome</th>
-			      <th scope="col">Categoria</th>
-			      <th scope="col">Preço</th>
 			      <th scope="col">Ações</th>
 			    </tr>
 			  </thead>
 			  <tbody>
-			  <c:forEach items="${produtos}" var="produto">
+			  <c:forEach items="${categorias}" var="categoria">
 				    <tr>
-				      <td>${produto.nome}</td>
-				      <td>${produto.categoriaModel.nomeCategoria}</td>
-				      <td>${produto.preco}</td>
+				      <td>${categoria.nomeCategoria}</td>
 				      <td>
-				      <form:form action="${contextPath}/produto/delete/${produto.id}" method="delete">
-				          <a href="${contextPath}/produto/${produto.id}"  class="btn btn-success btn-sm">Detalhes</a>
-					      <a href="${contextPath}/produto/form?page=produto-editar&id=${produto.id}" class="btn btn-warning btn-sm">Editar</a>
+				      <form:form action="${contextPath}/categoria/delete/${categoria.idCategoria}" method="delete">
+				          <a href="${contextPath}/categoria/${categoria.idCategoria}"  class="btn btn-success btn-sm">Detalhes</a>
+					      <a href="${contextPath}/categoria/form?page=categoria-editar&id=${categoria.idCategoria}" class="btn btn-warning btn-sm">Editar</a>
 					      <input type="submit" value="Excluir" class="btn btn-danger btn-sm">
 					      </form:form>
 					  </td>

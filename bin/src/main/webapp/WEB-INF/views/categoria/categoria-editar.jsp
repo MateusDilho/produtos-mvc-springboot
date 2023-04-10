@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 
@@ -35,7 +36,11 @@
 </head>
 <body>
 	<header>
-		<%@include file="../navbar/navbar.html"%>
+		<nav class="navbar navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand fonte-titulo" href="${contextPath}/categorias">Categoria</a>
+			</div>
+		</nav>
 	</header>
 
 	<main>
@@ -47,22 +52,28 @@
 
 							<h2 class="fonte-titulo texto-cor-especial">Categoria</h2>
 
-							<form:form modelAttribute="categoriaModel" action="${contextPath}/categoria" method="post">
+							<form:form modelAttribute="categoriaModel"
+								action="${contextPath}/categoria/update/${categoriaModel.idCategoria}" method="put">
 
 								<spring:hasBindErrors name="categoriaModel">
 									<div class="alert alert-danger" role="alert">
-										<form:errors path="*" class="has-error"/>
+										<form:errors path="*" class="has-error" />
 									</div>
 								</spring:hasBindErrors>
 
+								<div class = "form-group">
+								<form:input path="idCategoria" type="hidden" name="idCategoria" />
+								</div>
+
+
 								<div class="form-group">
 									<label class="control-label" for="nomeCategoria">Nome:</label>
-									<form:input type="text" name="nomeCategoria" path="nomeCategoria" 
-									id="nomeCategoria" class="form-control"/>
+									<form:input type="text" name="nomeCategoria" path="nomeCategoria" id="nomeCategoria"
+										class="form-control"/>
 									<font color="red"><form:errors path="nomeCategoria"/></font>
 								</div>
+								
 								<hr>
-
 								<a class="btn btn-secondary btn-sm"
 									href="${contextPath}/categoria">Cancelar</a>
 								<button type="submit" class="btn btn-primary btn-sm">Gravar</button>

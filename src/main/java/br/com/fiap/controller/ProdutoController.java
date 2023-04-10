@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.fiap.model.ProdutoModel;
+import br.com.fiap.repository.CategoriaRepository;
 import br.com.fiap.repository.ProdutoRepository;
 import jakarta.validation.Valid;
 
@@ -26,6 +27,8 @@ public class ProdutoController {
 
 	@Autowired
 	public ProdutoRepository repository;
+	@Autowired
+	public CategoriaRepository categoriaRepository;
 
 	@GetMapping()
 	public String findAll(Model model) {
@@ -46,7 +49,9 @@ public class ProdutoController {
 
 		if ("produto-editar".equals(page)) {
 			model.addAttribute("produtoModel", repository.findById(id));
+			
 		}
+		model.addAttribute("categorias", categoriaRepository.findAll());
 		return PRODUTO_FOLDER + page;
 	}
 

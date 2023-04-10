@@ -52,9 +52,6 @@
 							<p class="fs-6 m-0"><b>Nome:</b> ${produto.nome}</p>
                         </div>
                         <div class="form-group">
-							<p class="fs-6 m-0"><b>Categoria:</b> ${produto.categoriaModel.nomeCategoria}</p>
-                        </div>
-                        <div class="form-group">
                         	<p class="fs-6 m-0"><b>SKU:</b> ${produto.sku}</p>
 						</div>
 						<div class="form-group">

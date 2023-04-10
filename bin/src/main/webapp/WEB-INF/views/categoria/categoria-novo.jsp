@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 
@@ -47,19 +48,21 @@
 
 							<h2 class="fonte-titulo texto-cor-especial">Categoria</h2>
 
-							<form:form modelAttribute="categoriaModel" action="${contextPath}/categoria" method="post">
+							<form:form modelAttribute="categoriaModel"
+								action="${contextPath}/categoria" method="put">
 
 								<spring:hasBindErrors name="categoriaModel">
 									<div class="alert alert-danger" role="alert">
-										<form:errors path="*" class="has-error"/>
+										<form:errors path="*" class="has-error" />
 									</div>
 								</spring:hasBindErrors>
 
 								<div class="form-group">
 									<label class="control-label" for="nomeCategoria">Nome:</label>
 									<form:input type="text" name="nomeCategoria" path="nomeCategoria" 
-									id="nomeCategoria" class="form-control"/>
-									<font color="red"><form:errors path="nomeCategoria"/></font>
+									id="nomeCategoria" class="form-control" maxlength="50" size="50" />
+									<font color="red"><form:errors path="nomeCategoria"/>
+									</font>
 								</div>
 								<hr>
 
