@@ -46,7 +46,7 @@
 					<div class="col-lg-12">
 						<div class="well">
 
-							<h2 class="fonte-titulo texto-cor-especial">Produto</h2>
+							<h2 class="fonte-titulo texto-cor-especial" id="titulo">Produto</h2>
 
 							<form:form modelAttribute="produtoModel"
 								action="${contextPath}/produto" method="post">
@@ -63,14 +63,26 @@
 										value="" class="form-control" maxlength="50" size="50" />
 									<font color="red"><form:errors path="nome"></form:errors></font>
 								</div>
-								
+
 								<div class="form-group">
 									<label class="control-label" for="idCategoria">Categoria:</label>
-									<form:select path="categoriaModel.idCategoria" name="categoriaModel.idCategoria" id="idCategoria" class="form-select">
-										<form:options items="${categorias}" itemValue="idCategoria" itemLabel="nomeCategoria"/>
+									<form:select path="categoriaModel.idCategoria"
+										name="categoriaModel.idCategoria" id="idCategoria"
+										class="form-select">
+										<form:options items="${categorias}" itemValue="idCategoria"
+											itemLabel="nomeCategoria" />
 									</form:select>
 								</div>
-								
+
+								<div class="form-group">
+									<label class="control-label" for="idMarca">Marca:</label>
+									<form:select path="marcaModel.idMarca"
+										name="marcaModel.idMarca" id="idMarca" class="form-select">
+										<form:options items="${marcas}" itemValue="idMarca"
+											itemLabel="nomeMarca" />
+									</form:select>
+								</div>
+
 								<div class="form-group">
 									<label class="control-label" for="sku">SKU:</label>
 									<form:input type="text" path="sku" name="sku" id="sku"

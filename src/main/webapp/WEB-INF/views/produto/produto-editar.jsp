@@ -46,10 +46,11 @@
 					<div class="col-lg-12">
 						<div class="well">
 
-							<h2 class="fonte-titulo texto-cor-especial">Produto</h2>
+							<h2 class="fonte-titulo texto-cor-especial" id="titulo">Produto</h2>
 
 							<form:form modelAttribute="produtoModel"
-								action="${contextPath}/produto/update/${produtoModel.id}" method="put">
+								action="${contextPath}/produto/update/${produtoModel.id}"
+								method="put">
 
 								<spring:hasBindErrors name="produtoModel">
 									<div class="alert alert-danger" role="alert">
@@ -57,43 +58,55 @@
 									</div>
 								</spring:hasBindErrors>
 
-								<div class = "form-group">
-								<form:input path="id" type="hidden" name="id" />
+								<div class="form-group">
+									<form:input path="id" type="hidden" name="id" />
 								</div>
 
 
 								<div class="form-group">
 									<label class="control-label" for="nome">Nome:</label>
 									<form:input type="text" name="nome" path="nome" id="nome"
-										class="form-control"/>
+										class="form-control" />
 									<font color="red"><form:errors path="nome"></form:errors></font>
 								</div>
-								
+
 								<div class="form-group">
 									<label class="control-label" for="idCategoria">Categoria:</label>
-									<form:select path="categoriaModel.idCategoria" name="categoriaModel.idCategoria" id="idCategoria" class="form-select">
-										<form:options items="${categorias}" itemValue="idCategoria" itemLabel="nomeCategoria"/>
+									<form:select path="categoriaModel.idCategoria"
+										name="categoriaModel.idCategoria" id="idCategoria"
+										class="form-select">
+										<form:options items="${categorias}" itemValue="idCategoria"
+											itemLabel="nomeCategoria" />
 									</form:select>
 								</div>
-								
+
+								<div class="form-group">
+									<label class="control-label" for="idMarca">Marca:</label>
+									<form:select path="marcaModel.idMarca"
+										name="marcaModel.idMarca" id="idMarca" class="form-select">
+										<form:options items="${marcas}" itemValue="idMarca"
+											itemLabel="nomeMarca" />
+									</form:select>
+								</div>
+
 								<div class="form-group">
 									<label class="control-label" for="sku">SKU:</label>
 									<form:input type="text" path="sku" name="sku" id="sku"
-										class="form-control"/>
+										class="form-control" />
 									<font color="red"><form:errors path="sku"></form:errors></font>
 								</div>
 
 								<div class="form-group">
 									<label class="control-label" for="descricao">Descrição:</label>
 									<form:textarea class="form-control" path="descricao"
-										name="descricao" id="descricao" rows="4" cols="100"/>
+										name="descricao" id="descricao" rows="4" cols="100" />
 									<font color="red"><form:errors path="descricao"></form:errors></font>
 								</div>
 
 								<div class="form-group">
 									<label class="control-label" for="preco">Preço:</label>
 									<form:input type="number" id="preco" path="preco" name="preco"
-										step=".01" class="form-control"/>
+										step=".01" class="form-control" />
 									<font color="red"><form:errors path="preco"></form:errors></font>
 								</div>
 

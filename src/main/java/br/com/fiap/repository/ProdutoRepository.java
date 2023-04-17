@@ -3,7 +3,6 @@ package br.com.fiap.repository;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -13,10 +12,10 @@ import br.com.fiap.repository.mapper.ProdutoRowMapper;
 @Repository
 public class ProdutoRepository {
 
-	private static final String GET_ALL = "SELECT * FROM TB_PRODUTO P INNER JOIN TB_CATEGORIA C ON P.ID_CATEGORIA = C.ID_CATEGORIA ORDER BY P.ID";
-	private static final String SAVE = "INSERT INTO TB_PRODUTO (NOME, SKU, DESCRICAO, PRECO, CARACTERISTICAS, ID_CATEGORIA) VALUES(?,?,?,?,?,?)";
-	private static final String GET = "SELECT * FROM TB_PRODUTO P INNER JOIN TB_CATEGORIA C ON P.ID_CATEGORIA=C.ID_CATEGORIA WHERE ID = ?";
-	private static final String UPDATE = "UPDATE TB_PRODUTO SET NOME=?,SKU=?,DESCRICAO=?,CARACTERISTICAS=?, PRECO=?, ID_CATEGORIA=? WHERE ID=?";
+	private static final String GET_ALL = "SELECT * FROM TB_PRODUTO P INNER JOIN TB_CATEGORIA C ON P.ID_CATEGORIA = C.ID_CATEGORIA INNER JOIN TB_MARCA M ON P.ID_MARCA = M.ID_MARCA ORDER BY P.ID";
+	private static final String SAVE = "INSERT INTO TB_PRODUTO (NOME, SKU, DESCRICAO, PRECO, CARACTERISTICAS, ID_CATEGORIA, ID_MARCA) VALUES(?,?,?,?,?,?,?)";
+	private static final String GET = "SELECT * FROM TB_PRODUTO P INNER JOIN TB_CATEGORIA C ON P.ID_CATEGORIA=C.ID_CATEGORIA INNER JOIN TB_MARCA M ON P.ID_MARCA = M.ID_MARCA WHERE ID = ?";
+	private static final String UPDATE = "UPDATE TB_PRODUTO SET NOME=?,SKU=?,DESCRICAO=?,CARACTERISTICAS=?, PRECO=?, ID_CATEGORIA=?, ID_MARCA=? WHERE ID=?";
 	private static final String DELETE = "DELETE FROM TB_PRODUTO WHERE ID = ?";
 	
 	@Autowired
@@ -47,7 +46,8 @@ public class ProdutoRepository {
 									   produtoModel.getDescricao(),
 									   produtoModel.getPreco(),
 									   produtoModel.getCaracteristicas(),
-									   produtoModel.getCategoriaModel().getIdCategoria());
+									   produtoModel.getCategoriaModel().getIdCategoria(),
+									   produtoModel.getMarcaModel().getIdMarca());
 	}
 
 	public void update(ProdutoModel produtoModel) {
@@ -57,9 +57,9 @@ public class ProdutoRepository {
 										produtoModel.getCaracteristicas(),
 										produtoModel.getPreco(),
 										produtoModel.getCategoriaModel().getIdCategoria(),
+										produtoModel.getMarcaModel().getIdMarca(),
 										produtoModel.getId());
 										
 	}
-	
 
 }

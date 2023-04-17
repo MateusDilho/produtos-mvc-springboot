@@ -45,7 +45,7 @@
 					<div class="col-lg-12">
 						<div class="well">
 
-							<h2 class="fonte-titulo texto-cor-especial">Categoria</h2>
+							<h2 class="fonte-titulo texto-cor-especial" id="titulo">Categoria</h2>
 
 							<form:form modelAttribute="categoriaModel" action="${contextPath}/categoria" method="post">
 
