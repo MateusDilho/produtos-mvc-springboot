@@ -12,13 +12,14 @@ public class ProdutoModel {
 	private double preco;
 	private String caracteristicas;
 	private CategoriaModel categoriaModel;
+	private MarcaModel marcaModel;
 
 	public ProdutoModel() {
 		super();
 	}
 
 	public ProdutoModel(long id, String nome, String sku, String descricao, double preco, String caracteristicas,
-			CategoriaModel categoriaModel) {
+			CategoriaModel categoriaModel, MarcaModel marcaModel) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -27,6 +28,7 @@ public class ProdutoModel {
 		this.preco = preco;
 		this.caracteristicas = caracteristicas;
 		this.categoriaModel = categoriaModel;
+		this.marcaModel = marcaModel;
 	}
 
 	public long getId() {
@@ -88,6 +90,14 @@ public class ProdutoModel {
 
 	public void setCategoriaModel(CategoriaModel categoriaModel) {
 		this.categoriaModel = categoriaModel;
+	}
+	
+	public MarcaModel getMarcaModel() {
+		return marcaModel;
+	}
+
+	public void setMarcaModel(MarcaModel marcaModel) {
+		this.marcaModel = marcaModel;
 	}
 
 }

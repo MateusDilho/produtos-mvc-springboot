@@ -36,11 +36,7 @@
 </head>
 <body>
 	<header>
-		<nav class="navbar navbar-dark bg-dark">
-			<div class="container-fluid">
-				<a class="navbar-brand fonte-titulo" href="${contextPath}/categorias">Categoria</a>
-			</div>
-		</nav>
+			<%@include file = "../navbar/navbar.html" %>
 	</header>
 
 	<main>
@@ -50,7 +46,7 @@
 					<div class="col-lg-12">
 						<div class="well">
 
-							<h2 class="fonte-titulo texto-cor-especial">Categoria</h2>
+							<h2 class="fonte-titulo texto-cor-especial" id="titulo">Categoria</h2>
 
 							<form:form modelAttribute="categoriaModel"
 								action="${contextPath}/categoria/update/${categoriaModel.idCategoria}" method="put">

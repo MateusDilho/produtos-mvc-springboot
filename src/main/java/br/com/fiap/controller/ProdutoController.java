@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.fiap.model.ProdutoModel;
 import br.com.fiap.repository.CategoriaRepository;
+import br.com.fiap.repository.MarcaRepository;
 import br.com.fiap.repository.ProdutoRepository;
 import jakarta.validation.Valid;
 
@@ -29,6 +30,8 @@ public class ProdutoController {
 	public ProdutoRepository repository;
 	@Autowired
 	public CategoriaRepository categoriaRepository;
+	@Autowired
+	public MarcaRepository marcaRepository;
 
 	@GetMapping()
 	public String findAll(Model model) {
@@ -52,6 +55,7 @@ public class ProdutoController {
 			
 		}
 		model.addAttribute("categorias", categoriaRepository.findAll());
+		model.addAttribute("marcas", marcaRepository.findAll());
 		return PRODUTO_FOLDER + page;
 	}
 
@@ -85,7 +89,6 @@ public class ProdutoController {
 	public String delete(@PathVariable("id") long id, Model model, RedirectAttributes redirectAttributes) {
 		repository.deleteById(id);
 		redirectAttributes.addFlashAttribute("messages", "Produto deletado com sucesso!");
-		//model.addAttribute("produtos", repository.findAll());
 		return "redirect:/produto";
 	}
 }

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Produtos</title>
+<title>Marca</title>
 
 <!-- ATALHO PARA TRAZER A URL DE CONTEXTO DO PROJETO -->
 <c:set value="${pageContext.request.contextPath}" var="contextPath" />
@@ -39,50 +39,21 @@
 	</header>
 
 	<main>
+
 		<section id="detalhes" class="bg-light pb-5">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
 						<form>
-							<h2 class="fonte-titulo texto-cor-especial" id="titulo">Produto</h2>
+							<h2 class="fonte-titulo texto-cor-especial" id="titulo">Marca</h2>
 							<div class="form-group">
 								<p class="fs-6 m-0">
-									<b>Nome:</b> ${produto.nome}
-								</p>
-							</div>
-							<div class="form-group">
-								<p class="fs-6 m-0">
-									<b>Categoria:</b> ${produto.categoriaModel.nomeCategoria}
-								</p>
-							</div>
-							<div class="form-group">
-								<p class="fs-6 m-0">
-									<b>Marca:</b> ${produto.marcaModel.nomeMarca}
-								</p>
-							</div>
-							<div class="form-group">
-								<p class="fs-6 m-0">
-									<b>SKU:</b> ${produto.sku}
-								</p>
-							</div>
-							<div class="form-group">
-								<p class="fs-6 m-0">
-									<b>Descrição:</b> ${produto.descricao}
-								</p>
-							</div>
-							<div class="form-group">
-								<p class="fs-6 m-0">
-									<b>Preço:</b> ${produto.preco}
-								</p>
-							</div>
-							<div class="form-group">
-								<p class="fs-6 m-0">
-									<b>Características:</b> ${produto.caracteristicas}
+									<b>Nome da Marca:</b> ${marca.nomeMarca}
 								</p>
 							</div>
 							<hr>
 							<div class="d-grid gap-2 col-6">
-								<a class="btn btn-primary btn-sm" href="${contextPath}/produto">Voltar</a>
+								<a class="btn btn-primary btn-sm" href="${contextPath}/marca">Voltar</a>
 							</div>
 						</form>
 					</div>

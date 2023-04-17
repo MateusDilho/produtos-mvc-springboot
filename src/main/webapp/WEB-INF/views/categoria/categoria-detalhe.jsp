@@ -43,7 +43,7 @@
 	        <div class="row">
 	            <div class="col-lg-12">
 					<form>
-						<h2 class="fonte-titulo texto-cor-especial">Categoria</h2>
+						<h2 class="fonte-titulo texto-cor-especial" id="titulo">Categoria</h2>
 						<div class="form-group">
 							<p class="fs-6 m-0"><b>Nome da Categoria:</b> ${categoria.nomeCategoria}</p>
                         </div>
